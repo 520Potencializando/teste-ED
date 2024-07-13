@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Dosis:wght@200;300;400;500;600;700;800&family=Oswald:wght@200;300;400;500;600;700&family=Signika:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+ 
+    <!-- Título da Página -->
+    <title>Men's Health</title>
+
+    <style>
+      * { margin: 0; padding: 0; }
+      .esconder{
+        display:none;
+      }
+
+      body {
+        font-size: 16px;
+        background-color: #000;
+        min-height: 100%;
+      }
+
+      .container{
+        padding: 0;
+        max-width: 1000px
+
+      }
+
+      /*Botão*/
+      .a-btn {
+        text-decoration: none;
+        -webkit-font-smoothing: antialiased;
+        margin: 0;
+        border: 0; 
+        font: inherit; 
+        vertical-align: baseline;
+        color: #2e82bc; 
+        outline: 0; 
+        line-height: 1; 
+        text-align: center; 
+        position:relative!important; display: inline-block!important;
+        border-style: solid; 
+        width: 90%; padding-left: 0!important; padding-right: 0!important; 
+        margin-bottom: 10px; 
+        padding: 22px 44px; border-color: #ff5535; border-width: 0px; 
+        border-radius: 6px; 
+        background: linear-gradient(to bottom, #0DC51D 0%, #005200 100%);
+        box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5); 
+        text-decoration: none!important;
+        cursor: pointer;
+
+         animation: pulse 1.5s infinite alternate;
+        animation-name: pulse;
+        -webkit-animation-name: pulse;
+        animation-duration: 1.5s;
+        -webkit-animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        -webkit-animation-iteration-count: infinite;
+        text-decoration: none;
+      }
+
+      @keyframes pulse{
+        0%,100%{transform:scale(.9);opacity:.9;}
+        50%{transform:scale(1);opacity:1;}
+        }
+        @-webkit-keyframes pulse{
+        0%,100%{-webkit-transform:scale(.95);opacity:.7}
+        50%{-webkit-transform:scale(1);opacity:1}
+      }
+
+      .a-btn:hover {
+          background: #05FF05;
+          color: #fff;
+          border-radius: 5px;
+          box-shadow: 0 0 5px #05ff05, 0 0 25px #05ff05, 0 0 50px #05ff05, 0 0 100px #05ff05;
+      }
+
+      .span-btn {
+        text-decoration: none;
+        -webkit-font-smoothing: antialiased; 
+        text-align: center;
+        margin: 0; 
+        border: 0; 
+        font: inherit;
+        vertical-align: baseline;
+        display: block; 
+        position: relative; 
+        z-index: 1; 
+        padding: 0 15px; 
+        white-space: normal; 
+        font-size: 20px;
+        color: #ffffff; 
+        font-family: Oswald; 
+        font-weight: bold; 
+        text-shadow: #000000 0px 1px 0px;
+        text-decoration: none;
+      }
+      .span-btn2 {
+        -webkit-font-smoothing: antialiased; 
+        text-align: center;
+        padding: 0; border: 0;
+        font: inherit; 
+        vertical-align: baseline; 
+        display: block; 
+        position: relative;
+        z-index: 1; 
+        margin: .2em 0 -.5em; 
+        font-size: 15px; 
+        color: #f5e051; 
+        font-family: Cabin; 
+        font-weight: bold; 
+        font-style: italic;
+        text-shadow: #000000 0px 1px 0px;
+      }
+      /*End Botão*/
+
+      /*PopUps*/
+      .modal{
+        background-color: white;
+        border-radius: 20px;
+        margin: 50px auto;
+        overflow:auto; 
+        max-width: 500px;
+        z-index: 10000000;
+        padding: 10px;
+        color: #646464;
+      }
+
+      .close-modal{
+          cursor: pointer;
+          border: none;
+          width: 40px;
+          height: 40px;
+          border-radius: 50px;
+      }
+
+      .modal::-webkit-scrollbar {
+          width: 6px;
+      }
+
+      .modal-footer button{
+        margin: 0 auto;
+        border: none;
+        padding: 10px 40px;
+      }
+
+      .dim {
+        box-shadow: 0 0 0 1000px rgba(0, 0, 0, .6);
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .6);
+      }
+
+      /* PESSOAS ASSISTINDO */
+      .assistindo{
+        color: white;
+        font-size: 20px;
+        font-weight: 500;
+        padding-top: 5px;
+        padding-bottom: 0px
+      }
+
+      .assistindo span{
+        color: white;
+        font-weight: 700;
+      }
+      /* END PESSOAS ASSISTINDO */
+
+      /* FAQ */
+
+      .conteudo {
+        /*display: none;*/
+        transition: all 0.5s ease;
+      }
+      .visivel {
+        display: block;
+      }
+
+      .faq1{
+        font-weight: 700;
+        text-align: center;
+        font-size: 20px;"
+
+      }
+
+      .faq p{
+        background-color: #9b4c4c;
+        border-radius: 10px;
+        border: 1px solid #910000;
+        padding: 10px;
+      }
+
+      .ask{
+        display: inline-block;
+        width: 45%;
+        text-align: left;
+        margin: 10px;
+      }
+
+      .passos-pg{
+        display: inline-block;
+        width: 20%;
+      }
+
+      .cria-div1, .cria-div2 {
+        display: inline-block;
+        width: 45%;
+      }
+
+      .cria-div2{
+        margin: 10px;
+      }
+
+      @media screen and (max-width: 767px) {
+        .ask, .dep-pg, .passos-pg, .cria-div1, .cria-div2{          
+          width: 90%;
+        }
+
+        .passos-pg{
+          margin-top: 20px;
+        }
+
+        .cria-div2{
+          margin: 0;
+        }
+      }
+
+      .mobile-only {
+        display: none;
+      }
+
+      @media (max-width: 767px) {
+        .mobile-only {
+          display: block;
+        }
+        .desktop-only {
+          display: none;
+        }
+      }
+
+      .desktop-only {
+        display: block;
+      }
+
+      @media (max-width: 767px) {
+        .desktop-only {
+          display: none;
+        }
+      }
+
+      /* Slide de Imagens */
+      #slide-pg .hcg-slide-container {
+        width: auto;
+        height: auto;
+      }
+      .hcg-slider {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .hcg-slide-container {
+        max-width: 100%;
+        display: inline-block;
+        position: relative;
+      }
+      .hcg-slides {
+        display: none;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        border: solid 1px #a0a0a0;
+      }
+      .hcg-slides img {
+        max-width: 100%;
+        max-height: 100%;
+        display: inline-block;
+      }
+
+      /************CSS Animation***********/
+
+      .animated { 
+        animation-name: fadeIn; 
+        animation-duration: 1s;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .fadeIn {
+        animation-name: fadeIn;
+      }
+
+      /*Cronometro */
+
+.neon {
+  position: relative;
+  overflow: hidden;
+  filter: brightness(200%);
+  padding: 0px;
+  margin: 10px;
+}
+.text {
+  color: white;
+  font-size: 100px;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  position: relative;
+  user-select: none;
+}
+.text::before {
+  content: attr(data-text);
+  position: absolute;
+  color: white;
+  filter: blur(0.02em);
+  mix-blend-mode: difference;
+}
+
+.neon .hl{
+    display: block;
+    color: red;
+    font-size: 20px;
+    font-weight: 800;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    position: relative;
+    bottom: -30px;
+}
+
+    </style>
+
+  </head>
+  <body>
+    <header style="background-color: black; padding-bottom: 30px;">
+    <div style="width:100%;text-align:center;background-color: #830000;color: #fff;">
+      <p style="padding: 10px;">99% of men haven't seen this yet...</p>
+    </div>
+      <div class="container">
+        
+          <div class="text-center">
+            <!-- HL em IMG -->
+            <img style="width: 100%; padding: 30px 10px;" src="hl-01.png">
+        
+            <!-- VSL -->
+            <div id="vid_658df06042dbd500090937f0" style="border-radius:10px;position:relative;width:100%;padding: 56.25% 0 0;"><img id="thumb_658df06042dbd500090937f0" src="https://images.converteai.net/c0084be8-f394-4e95-99cb-2e40483a22c0/players/658df06042dbd500090937f0/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"><div id="backdrop_658df06042dbd500090937f0" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div></div><script type="text/javascript" id="scr_658df06042dbd500090937f0">var s=document.createElement("script");s.src="https://scripts.converteai.net/c0084be8-f394-4e95-99cb-2e40483a22c0/players/658df06042dbd500090937f0/player.js",s.async=!0,document.head.appendChild(s);</script>
+
+            <!-- pessoas assistindo -->
+            <div class="assistindo">🔴<span id="number"></span> people watching now...</div>
+
+            <!-- Botão -->
+            <div id="cta1" class="esconder mt-4">
+              <!-- <a href="https://goboostaro.com/video/int/bg?aff_id=248070" class="a-btn" style="text-decoration: none;">
+                <span class="span-btn">CLICK TO ACCESS OFFERS</span>
+                <span class="span-btn2">(Limited stock!)</span>
+              </a>-->
+
+              <h1 style="font-family: Oswald;font-size: 30px; font-weight: 700;color: #fff;margin-top: 30px;">Secure Your Discounted BOOSTARO Package While Stock Lasts</h1>
+
+              <!-- Timer -->
+              <div class="neon">
+                  <span class="hl">THIS DISCOUNT ENDS IN:</span>
+                  <span id="countdown" class="text">05:00</span>
+              </div>
+
+              <style>
+                  .image-container {
+                      display: flex;
+                      justify-content: space-between;
+                      gap: 10px; /* Leve distância entre as imagens */
+                  }
+                  
+                  .image-container a {
+                      flex: 1;
+                      text-align: center; /* Centraliza as imagens dentro dos links */
+                  }
+                  
+                  .image-container img {
+                      max-width: 100%;
+                      height: auto;
+                  }
+                  
+                  @media (max-width: 768px) {
+                      .image-container {
+                          flex-direction: column;
+                          align-items: center;
+                      }
+                  }
+              </style>
+
+              <div class="image-container">
+                  <a href="https://buygoods.com/secure/checkout.html?account_id=7532&product_codename=1_BS7_294&sessid2=sessid20240710205212314&redirect=aHR0cHM6Ly9nb2Jvb3N0YXJvLmNvbS9vcHRpb25zLWJnLzEvNi8=&aff_id=751614&_conv_v=vi%3A1*sc%3A2*cs%3A1720872937*fs%3A1720644737*pv%3A5*seg%3A%7B10003692.1%7D*exp%3A%7B100044043.%7Bv.1000234664-g.%7B100027836.1%7D%7D%7D*ps%3A1720644737&_conv_s=null&_ga=2.201454417.1951872542.1720872938-1628542875.1720644740">
+                      <img src="6Potes.png" alt="6 Potes">
+                  </a>
+                  <a href="https://buygoods.com/secure/checkout.html?account_id=7532&product_codename=1_BS3_177&sessid2=sessid20240710205212314&redirect=aHR0cHM6Ly9nb2Jvb3N0YXJvLmNvbS9vcHRpb25zLWJnLzEvMy8=&aff_id=751614&_conv_v=vi%3A1*sc%3A2*cs%3A1720872937*fs%3A1720644737*pv%3A5*seg%3A%7B10003692.1%7D*exp%3A%7B100044043.%7Bv.1000234664-g.%7B100027836.1%7D%7D%7D*ps%3A1720644737&_conv_s=null&_ga=2.201454417.1951872542.1720872938-1628542875.1720644740">
+                      <img src="3Potes.png" alt="3 Potes">
+                  </a>
+                  <a href="https://buygoods.com/secure/checkout.html?account_id=7532&product_codename=1_BS1_069&sessid2=sessid20240710205212314&redirect=aHR0cHM6Ly9nb2Jvb3N0YXJvLmNvbS9vcHRpb25zLWJnLzEvMS8=&aff_id=751614&_conv_v=vi%3A1*sc%3A2*cs%3A1720872937*fs%3A1720644737*pv%3A5*seg%3A%7B10003692.1%7D*exp%3A%7B100044043.%7Bv.1000234664-g.%7B100027836.1%7D%7D%7D*ps%3A1720644737&_conv_s=null&_ga=2.209361618.1951872542.1720872938-1628542875.1720644740">
+                      <img src="1Pote.png" alt="1 Pote">
+                  </a>
+              </div>
+
+            </div>
+          </div>
+      </div>
+    </header>
+
+    <!-- Depoimentos -->
+    <div class="esconder" style="background-color: #202D3C">
+      <div class="container" style="padding: 20px 0 20px 0; text-align: center;">
+        <h1 style="color: #fff;font-family: Oswald;">Here's What Others Say About BOOSTARO</h1>
+        <img class="dep-pg" style="padding: 10px;" src="dep01.png">
+        <img class="dep-pg" style="padding: 10px;" src="dep02.png">
+        <img class="dep-pg" style="padding: 10px;" src="dep03.png">    
+      </div>
+    </div>
+
+    <!-- GARANTIA -->
+     <div class="esconder" style="background-color: #fff;padding: 20px;">
+      <div class="container" style="text-align: center;">
+        <img style="width: 170px" src="garantia.webp">
+        <h1 style="font-family: Oswald;font-size: 30px; font-weight: 700;">180 Day Money Back Guarantee</h1>
+        <p>Your order today is protected by my 100% risk free money back guarantee.
+          <br>
+          <br>
+          If you're not fully satisfied with BOOSTARO™, if you don't see the results you've been looking for or simply want your money back for no reason at all, send me an email or call our toll free number and I'll refund EVERY SINGLE PENNY of your investment within 48 hours.
+          <br>
+          <br>
+          No questions asked, no hassle, no red tape.
+          <br>
+          <br>
+          Sincerely,
+          <br>
+          <br>
+          <span style="font-weight: bold;text-decoration: i;">Michael Davis.</span>
+        </p>        
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="esconder" style="background-color: #000">
+      <div class="container faq" style="color: #fff; text-align: center;">
+        <h1 style="font-family: Oswald;padding: 20px 0 20px 0;">Frequently Asked Questions</h1>
+        <div class="ask">
+          <h2 class="faq1">Is it really possible to grow my penis?🔽</h2>
+          <div id="minhaDiv1" class="conteudo">
+            <p>The quick answer is YES. You see, the reason why BOOSTARO is so effective is because of its special ingredient composition and the way it acts on your penis. Other male enhancement programs may manually extend the penile tissue of your member, or send blood to it, which may have some temporary results. But they don’t actually make it bigger. BOOSTAROon the other hand, goes directly to the root cause of your problem, in a unique and proprietary way and regrows your penis to its intended size, just like Mother Nature always wanted you to have.</p>
+          </div>
+        </div>
+        <div class="ask">
+          <h2 class="faq1">Is it okay to take BOOSTARO if I have allergies or I am currently taking other supplements?🔽</h2>
+          <div id="minhaDiv2" class="conteudo">
+            <p>We created BOOSTARO for all ages and medical conditions. The only side effect you’ll see while using it will be the shocked look on your woman’s face when she sees the monster that’s hiding down there. BOOSTARO does not require any restrictive diets or weird exercises, it does not interfere with other supplements you may take… And it makes your penis grow bigger in an extremely safe and natural way… You should also know that BOOSTARO is produced using high quality ingredients in an FDA approved facility using the latest technology and equipment. This is why we can confidently say that BOOSTARO is safe to use. Now, as always if you suffer from allergies or other certain medical conditions at this very moment, we strongly advise that you consult with your doctor first.</p>
+          </div>
+        </div>
+        <div class="ask">
+          <h2 class="faq1">Is this program for me?🔽</h2>
+          <div id="minhaDiv3" class="conteudo">
+            <p>Yes! BOOSTARO has zero side effects and it doesn’t interfere with any medication or diet. Also, we’ve received many thank you letters from men saying they’ve managed to regrow their hair and got firmer muscles using this formula.</p>
+          </div>
+        </div>
+        <div class="ask">
+          <h2 class="faq1">Will I be seeing results soon?🔽</h2>
+          <div id="minhaDiv4" class="conteudo">
+            <p>The moment you begin taking BOOSTARO when the growing process begins. And once your body assimilates all the nutrients it needs, you’ll start seeing results in just a few weeks!</p>
+          </div>
+        </div>
+        <div class="ask">
+          <h2 class="faq1">What if it doesn’t work for me, can you tell me about that guarantee again?🔽</h2>
+          <div id="minhaDiv4" class="conteudo">
+            <p>Tens of thousands of men are already living proof that BOOSTARO will work for you. Of course, no two bodies ever work in exactly the same way. A small number of people might find it doesn’t work for them as they expected and that’s why every bottle of BOOSTARO comes with a risk free 180 day money back guarantee. If you decide BOOSTARO is not for you, you can return what you haven’t used in full, for an immediate no questions asked refund.</p>
+          </div>
+        </div>
+        <div class="ask">
+          <h2 class="faq1">Is this program still going to be available over the next year?🔽</h2>
+          <div id="minhaDiv4" class="conteudo">
+            <p>It’s hard to say. The adult drug manufacturers are not going to step aside and watch as their long kept secret gets spilled everywhere. This formula is already causing them major losses. Men with a smaller penis, who used to pay and watch hours of porn, are now even bigger than some of these companies' star players and enjoying days and nights filled with pleasure with stunning women. That’s why we don’t know if this program will still be here this year, next month or even next week to be honest. So this may be your last chance to get BOOSTARO. The choice is up to you of course... But I wouldn’t wait until it’s already too late and this website is removed from the internet. Also you should know that the only place you can get BOOSTARO is right here on this page.</p>
+          </div>
+        </div>
+        <a style="margin-top: 20px;" href="https://goboostaro.com/video/int/bg?aff_id=248070" class="a-btn" style="text-decoration: none;">
+          <span class="span-btn">CLICK TO ACCESS OFFERS</span>
+          <span class="span-btn2">(Limited stock!)</span>
+        </a>
+      </div>
+    </div>
+
+    <footer style="padding: 320px 0 20px 0;background-color: #000;text-align: center;color: gray;">
+      <p style="margin-bottom: 0px">Copyright 2024 © All rights reserved</p>
+      <div><a style="font-weight: 600;color: #fff;cursor: pointer;">Terms of use |</a><a style="font-weight: 600;color: #fff;cursor: pointer;"> Privacy Policies</a></div>       
+    </footer>
+
+
+  <script type="text/javascript">
+    //--------------------------------------
+
+    //Botão Sincronizado Vturb
+        
+    //-------------------------------------
+    document.addEventListener("DOMContentLoaded", function() {
+    /* ALTERE O VALOR 10 PARA OS SEGUNDOS EM QUE AS SEÇÕES VÃO APARECER */
+    var SECONDS_TO_DISPLAY = 5; //Boostaro 1767
+    var CLASS_TO_DISPLAY = ".esconder";
+    /* DAQUI PARA BAIXO NAO PRECISA ALTERAR */
+    var attempts = 0;
+    var elsHiddenList = [];
+    var elsDisplayed = false;
+    var elsHidden = document.querySelectorAll(CLASS_TO_DISPLAY);
+    var alreadyDisplayedKey ='alreadyElsDisplayed${SECONDS_TO_DISPLAY}'
+    var alreadyElsDisplayed = null;
+    try {
+        alreadyElsDisplayed = localStorage.getItem(alreadyDisplayedKey);
+    } catch(e) {
+        console.warn('Failed to read data from localStorage: ', e);
+    }
+    setTimeout(function () { elsHiddenList = Array.prototype.slice.call(elsHidden); }, 0);
+    var showHiddenElements = function () {
+    elsDisplayed = true;
+    elsHiddenList.forEach((e) => e.style.display = "block");
+    try {
+      localStorage.setItem(alreadyDisplayedKey, true);
+    } catch (e) {
+      console.warn('Failed to save data in localStorage: ', e);
+    }
+
+    //ALTERAR OS SEGUNDOS DO TIMER
+    countdown("countdown", 06, 00);
+    }
+    var startWatchVideoProgress = function () {
+    if (typeof smartplayer === 'undefined' || !(smartplayer.instances && smartplayer.instances.length)) {
+    if (attempts >= 10) return;
+    attempts += 1;
+    return setTimeout(function () { startWatchVideoProgress() }, 1000);
+    }
+    smartplayer.instances[0].on('timeupdate', () => {
+    if (elsDisplayed || smartplayer.instances[0].smartAutoPlay) return;
+    if (smartplayer.instances[0].video.currentTime < SECONDS_TO_DISPLAY) return;
+    showHiddenElements();
+    })
+    }
+    if (alreadyElsDisplayed === 'true') {
+    setTimeout(function () { showHiddenElements();
+    }, 100);
+          
+
+    } else {
+    startWatchVideoProgress();
+
+    
+    }
+    });
+
+  </script>
+
+
+  <script type="text/javascript">
+    //Pessoas Assistindo
+    function add(){number+=Math.floor((Math.random()*6)+1);document.getElementById("number").innerHTML=number;setTimeout("add()",10000);}        
+    function generate(){number=Math.floor(Math.random()*1143)+1578;document.getElementById("number").innerHTML=number;add();}
+    generate();
+
+  </script>
+
+<script type="text/javascript">
+//Timer
+    function countdown(elementName, minutes, seconds) {
+  var element, endTime, hours, mins, msLeft, time;
+
+  function twoDigits(n) {
+    return n <= 9 ? "0" + n : n;
+  }
+
+  function updateTimer() {
+    msLeft = endTime - +new Date();
+    if (msLeft < 1000) {
+      element.innerHTML = "0:00";
+    } else {
+      time = new Date(msLeft);
+      hours = time.getUTCHours();
+      mins = time.getUTCMinutes();
+      element.innerHTML =
+        (hours ? hours + ":" + twoDigits(mins) : mins) +
+        ":" +
+        twoDigits(time.getUTCSeconds());
+      setTimeout(updateTimer, time.getUTCMilliseconds() + 500);
+    }
+  }
+
+  element = document.getElementById(elementName);
+  endTime = +new Date() + 1000 * (60 * minutes + seconds) + 500;
+  updateTimer();
+}
+</script>
+  
+  </body>
+</html>
